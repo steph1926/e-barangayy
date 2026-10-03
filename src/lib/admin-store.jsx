@@ -170,7 +170,7 @@ export function AdminProvider({ children }) {
           name: u.fullName,
           birthday: residentDate(u.birthday),
           sex: u.sex ?? "",
-          purok: u.purok ?? "",
+          road: u.road ?? "",
           address: u.address,
           contact: u.contact,
           email: u.email,

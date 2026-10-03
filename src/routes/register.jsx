@@ -39,7 +39,7 @@ export const Route = createFileRoute("/register")({
   component: Register,
 });
 
-const PUROKS = [
+const roadS = [
   "Road 1",
   "Road 2",
   "Road 3",
@@ -67,7 +67,7 @@ const EMPTY = {
   contact: "",
   email: "",
   address: "",
-  purok: "",
+  road: "",
   landmark: "",
   idType: "",
   idNumber: "",
@@ -158,7 +158,7 @@ function Register() {
     }
     if (target === 2) {
       if (!form.address.trim()) next.address = "Complete address is required.";
-      if (!form.purok) next.purok = "Please select your purok or sitio.";
+      if (!form.road) next.road = "Please select your road or sitio.";
     }
     if (target === 3) {
       if (!form.idType) next.idType = "Please select a valid ID type.";
@@ -208,7 +208,7 @@ function Register() {
       contact: form.contact.trim(),
       email: form.email.trim(),
       address: form.address.trim(),
-      purok: form.purok,
+      road: form.road,
       landmark: form.landmark.trim(),
       validId: `${form.idType} — ${form.idNumber.trim()}`,
       password: form.password,
@@ -350,10 +350,10 @@ function Register() {
                   </Field>
                 </div>
 
-                <Field label="Purok / Sitio" error={errors.purok}>
-                  <Select value={form.purok} onChange={set("purok")}>
+                <Field label="road / Sitio" error={errors.road}>
+                  <Select value={form.road} onChange={set("road")}>
                     <option value="">Select a road or street</option>
-                    {PUROKS.map((p) => (
+                    {roadS.map((p) => (
                       <option key={p} value={p}>
                         {p}
                       </option>
@@ -418,7 +418,7 @@ function Register() {
                   <SummaryRow label="Contact Number" value={form.contact} />
                   <SummaryRow label="Email Address" value={form.email} />
                   <SummaryRow label="Complete Address" value={form.address} />
-                  <SummaryRow label="Purok / Sitio" value={form.purok} />
+                  <SummaryRow label="road / Sitio" value={form.road} />
                   <SummaryRow label="Nearest Landmark" value={form.landmark} />
                   <SummaryRow
                     label="Valid ID"

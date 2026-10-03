@@ -18,7 +18,7 @@ export const Route = createFileRoute("/profile")({
   component: Profile,
 });
 
-const PUROKS = [
+const roadS = [
   "Road 1",
   "Road 2",
   "Road 3",
@@ -65,7 +65,7 @@ function Profile() {
     ["Contact Number", user.contact],
     ["Email Address", user.email],
     ["Complete Address", user.address],
-    ["Purok / Sitio", user.purok || "—"],
+    ["road / Sitio", user.road || "—"],
     ["Valid ID", user.validId || "—"],
   ];
 
@@ -149,10 +149,10 @@ function Profile() {
               </Field>
             </div>
 
-            <Field label="Purok / Sitio">
-              <Select value={form.purok ?? ""} onChange={set("purok")}>
+            <Field label="road / Sitio">
+              <Select value={form.road ?? ""} onChange={set("road")}>
                 <option value="">Select a road or street</option>
-                {PUROKS.map((p) => (
+                {roadS.map((p) => (
                   <option key={p} value={p}>
                     {p}
                   </option>

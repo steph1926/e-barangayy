@@ -342,7 +342,7 @@ export function ResidentVerificationPage() {
                 </td>
                 <td className={td}>
                   <span className="font-medium">{resident.name}</span>
-                  <span className="mt-1 block text-xs text-muted-foreground">{resident.purok}</span>
+                  <span className="mt-1 block text-xs text-muted-foreground">{resident.road}</span>
                 </td>
                 <td className={`${td} whitespace-nowrap`}>{resident.idType}</td>
                 <td className={`${td} whitespace-nowrap`}>

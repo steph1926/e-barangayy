@@ -65,7 +65,7 @@ const CATEGORIES = [
   "Other",
 ];
 
-const PUROKS = ["Road 1", "Road 2", "Road 3", "Road 4", "Road 5", "Road 6"];
+const roadS = ["Road 1", "Road 2", "Road 3", "Road 4", "Road 5", "Road 6"];
 
 const PRIORITIES = [
   { value: "Low", hint: "Minor inconvenience, no danger to residents." },
@@ -277,7 +277,7 @@ const EMPTY = {
   priority: "Medium",
   houseNo: "",
   street: "",
-  purok: "",
+  road: "",
   landmark: "",
 };
 
@@ -303,7 +303,7 @@ function ReportPage() {
     () =>
       [
         [form.houseNo, form.street].filter(Boolean).join(" "),
-        form.purok,
+        form.road,
         "Barangay 902, Zone 100, District 6, Maynila",
         form.landmark ? `Near ${form.landmark}` : "",
       ]
@@ -351,7 +351,7 @@ function ReportPage() {
   const validateStep2 = () => {
     const next = {};
     if (!form.street.trim()) next.street = "Please enter the street or area name.";
-    if (!form.purok) next.purok = "Please select the purok.";
+    if (!form.road) next.road = "Please select the road.";
     if (!form.landmark.trim()) next.landmark = "Please enter the nearest landmark.";
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -600,10 +600,10 @@ function ReportPage() {
                     placeholder="e.g. Mabini Street"
                   />
                 </Field>
-                <Field label="Purok" error={errors.purok}>
-                  <Select value={form.purok} onChange={set("purok")}>
-                    <option value="">Select purok</option>
-                    {PUROKS.map((p) => (
+                <Field label="road" error={errors.road}>
+                  <Select value={form.road} onChange={set("road")}>
+                    <option value="">Select road</option>
+                    {roadS.map((p) => (
                       <option key={p} value={p}>
                         {p}
                       </option>
@@ -732,7 +732,7 @@ function ReportPage() {
               <div className="rounded-2xl border border-border bg-muted/20 p-4">
                 <SummaryRow label="House / Building No." value={form.houseNo} />
                 <SummaryRow label="Street / Area" value={form.street} />
-                <SummaryRow label="Purok" value={form.purok} />
+                <SummaryRow label="road" value={form.road} />
                 <SummaryRow label="Nearest Landmark" value={form.landmark} />
                 <SummaryRow label="Complete Location" value={fullLocation} />
                 <SummaryRow
@@ -769,7 +769,7 @@ function ReportPage() {
                 <SummaryRow label="Contact Number" value={user?.contact} />
                 <SummaryRow label="Email Address" value={user?.email} />
                 <SummaryRow label="Home Address" value={user?.address} />
-                <SummaryRow label="Purok" value={user?.purok} />
+                <SummaryRow label="road" value={user?.road} />
                 <SummaryRow label="Account Status" value={<StatusBadge status={user?.status} />} />
               </div>
 
