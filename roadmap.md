@@ -1,0 +1,13 @@
+- [x] Preserve uploaded Resident Portal
+- [x] Add shared Resident/Admin mock login
+- [x] Add responsive admin navigation and dashboard
+- [x] Add mock management pages and interactions
+- [x] Upgrade Problem Reports with detailed review and status management
+- [x] Verify desktop/mobile flows and preview health
+- [x] Add five sample document templates with submitted details, editing, generation, printing, PDF saving, and pickup status
+- [x] Add detailed resident verification review, document previews, remarks, and mock approval actions
+- [x] Improve Report a Problem page (4-step flow, details, location, review, e-signature, confirmation)
+- [x] Convert all remaining authored .js files to .jsx
+
+- [x] Fix birthday calendar date and control contrast
+- [x] Notify residents on new announcements (bell badge + announcements page, cross-tab)
