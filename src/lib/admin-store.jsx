@@ -9,12 +9,21 @@ import {
 } from "react";
 import { useApp } from "@/lib/barangay-store";
 import {
+<<<<<<< HEAD
   BRoadCASTS_KEY,
   readBRoadcasts,
   writeBRoadcasts,
   markBRoadcastRead,
   bRoadcastNotification,
 } from "@/lib/bRoadcasts";
+=======
+  BROADCASTS_KEY,
+  readBroadcasts,
+  writeBroadcasts,
+  markBroadcastRead,
+  broadcastNotification,
+} from "@/lib/broadcasts";
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
 export const PICKUP_INSTRUCTIONS =
   "Claim your document at the Barangay 902 Hall, Monday to Friday, 8:00 AM to 5:00 PM.";
 export const ID_REMINDER =
@@ -64,7 +73,11 @@ const ADMIN = {
 export const ADMIN_EMAIL = "admin@barangay902.test";
 export const ADMIN_PASSWORD = "Admin123!";
 // Published announcements are shared with every resident tab through localStorage
+<<<<<<< HEAD
 // (see src/lib/bRoadcasts.js).
+=======
+// (see src/lib/broadcasts.js).
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
 const INITIAL_RESIDENTS = [
 
 ];
@@ -170,7 +183,11 @@ export function AdminProvider({ children }) {
           name: u.fullName,
           birthday: residentDate(u.birthday),
           sex: u.sex ?? "",
+<<<<<<< HEAD
           Road: u.Road ?? "",
+=======
+          road: u.road ?? "",
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
           address: u.address,
           contact: u.contact,
           email: u.email,
@@ -555,6 +572,7 @@ export function AdminProvider({ children }) {
   // them into "All residents" notifications, refreshing each resident's read
   // state from storage. Runs on load, on storage events, and on a 1s poll.
   useEffect(() => {
+<<<<<<< HEAD
     const syncBRoadcasts = () => {
       const bRoadcasts = readBRoadcasts();
       if (!bRoadcasts.length) return;
@@ -562,6 +580,15 @@ export function AdminProvider({ children }) {
         let next = list;
         for (const ann of bRoadcasts) {
           const ntf = bRoadcastNotification(ann);
+=======
+    const syncBroadcasts = () => {
+      const broadcasts = readBroadcasts();
+      if (!broadcasts.length) return;
+      setNotifications((list) => {
+        let next = list;
+        for (const ann of broadcasts) {
+          const ntf = broadcastNotification(ann);
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
           const existing = next.find((n) => n.id === ntf.id);
           if (!existing) {
             next = [ntf, ...next];
@@ -573,6 +600,7 @@ export function AdminProvider({ children }) {
       });
       // Surface published announcements on the admin list too.
       setAnnouncements((items) => {
+<<<<<<< HEAD
         const fresh = bRoadcasts.filter((b) => !items.some((i) => i.id === b.id));
         return fresh.length ? [...fresh, ...items] : items;
       });
@@ -587,6 +615,22 @@ export function AdminProvider({ children }) {
     return () => {
       window.removeEventListener("storage", onStorage);
       window.removeEventListener("focus", syncBRoadcasts);
+=======
+        const fresh = broadcasts.filter((b) => !items.some((i) => i.id === b.id));
+        return fresh.length ? [...fresh, ...items] : items;
+      });
+    };
+    syncBroadcasts();
+    const onStorage = (e) => {
+      if (e.key === BROADCASTS_KEY) syncBroadcasts();
+    };
+    window.addEventListener("storage", onStorage);
+    window.addEventListener("focus", syncBroadcasts);
+    const timer = window.setInterval(syncBroadcasts, 1000);
+    return () => {
+      window.removeEventListener("storage", onStorage);
+      window.removeEventListener("focus", syncBroadcasts);
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
       window.clearInterval(timer);
     };
   }, []);
@@ -597,7 +641,11 @@ export function AdminProvider({ children }) {
           if (n.resident === resident && !n.read) return { ...n, read: true };
           if (n.resident === "All" && !(n.readBy ?? []).includes(resident)) {
             // Persist so other tabs and future sessions keep it read.
+<<<<<<< HEAD
             markBRoadcastRead(n.requestId, resident);
+=======
+            markBroadcastRead(n.requestId, resident);
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
             return { ...n, readBy: [...(n.readBy ?? []), resident] };
           }
           return n;
@@ -658,10 +706,17 @@ export function AdminProvider({ children }) {
       readBy: [],
     };
     // Persist so every resident tab (and future sessions) receives it.
+<<<<<<< HEAD
     writeBRoadcasts([ann, ...readBRoadcasts()]);
     setAnnouncements((items) => [ann, ...items]);
     // BRoadcast a notification to every resident.
     setNotifications((list) => [bRoadcastNotification(ann), ...list]);
+=======
+    writeBroadcasts([ann, ...readBroadcasts()]);
+    setAnnouncements((items) => [ann, ...items]);
+    // Broadcast a notification to every resident.
+    setNotifications((list) => [broadcastNotification(ann), ...list]);
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
   }, []);
   const updateAdmin = useCallback(
     (data) => setAdmin((current) => (current ? { ...current, ...data } : current)),

@@ -1,5 +1,9 @@
 import { createContext, useContext, useEffect, useMemo, useState, useCallback } from "react";
+<<<<<<< HEAD
 import { BRoadCASTS_KEY, readBRoadcasts } from "@/lib/bRoadcasts";
+=======
+import { BROADCASTS_KEY, readBroadcasts } from "@/lib/broadcasts";
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
 
 const AppContext = createContext(null);
 
@@ -19,7 +23,11 @@ const MOCK_USERS = [
     birthday: "1992-04-18",
     sex: "Female",
     address: "12 Mabini St., Road 3, Barangay 902",
+<<<<<<< HEAD
     Road: "Road 3",
+=======
+    road: "Road 3",
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
     validId: "Philippine National ID (PhilSys) — 1234-5678-9012",
     contact: "0917 555 0142",
     email: "resident1@barangay902.test",
@@ -32,7 +40,11 @@ const MOCK_USERS = [
     birthday: "1985-11-02",
     sex: "Male",
     address: "88 Rizal Ave., Road 1, Barangay 902",
+<<<<<<< HEAD
     Road: "Road 1",
+=======
+    road: "Road 1",
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
     validId: "Driver's License — N01-88-123456",
     contact: "0918 221 7788",
     email: "resident2@barangay902.test",
@@ -131,6 +143,7 @@ export function AppProvider({ children }) {
   const [seq, setSeq] = useState(40);
   const [restored, setRestored] = useState(false);
   // Announcements published by the admin, received from any tab via localStorage.
+<<<<<<< HEAD
   const [bRoadcasts, setBRoadcasts] = useState(() => readBRoadcasts());
 
   // Refresh published announcements when another tab posts one.
@@ -138,6 +151,15 @@ export function AppProvider({ children }) {
     const load = () => setBRoadcasts(readBRoadcasts());
     const onStorage = (e) => {
       if (e.key === BRoadCASTS_KEY) load();
+=======
+  const [broadcasts, setBroadcasts] = useState(() => readBroadcasts());
+
+  // Refresh published announcements when another tab posts one.
+  useEffect(() => {
+    const load = () => setBroadcasts(readBroadcasts());
+    const onStorage = (e) => {
+      if (e.key === BROADCASTS_KEY) load();
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
     };
     window.addEventListener("storage", onStorage);
     window.addEventListener("focus", load);
@@ -151,8 +173,13 @@ export function AppProvider({ children }) {
 
   // Newest admin-published announcements first, then the built-in ones.
   const announcements = useMemo(
+<<<<<<< HEAD
     () => [...bRoadcasts.map((b) => ({ ...b, date: b.date ?? b.postedAt })), ...ANNOUNCEMENTS],
     [bRoadcasts],
+=======
+    () => [...broadcasts.map((b) => ({ ...b, date: b.date ?? b.postedAt })), ...ANNOUNCEMENTS],
+    [broadcasts],
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
   );
 
   // Share resident submissions between browser tabs so the admin is notified right away.

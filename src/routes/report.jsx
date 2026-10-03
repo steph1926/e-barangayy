@@ -40,7 +40,11 @@ export const Route = createFileRoute("/report")({
       {
         name: "description",
         content:
+<<<<<<< HEAD
           "Report garbage, damaged streetlights, Road damage and other problems in Barangay 902, Zone 100, District 6, Maynila.",
+=======
+          "Report garbage, damaged streetlights, road damage and other problems in Barangay 902, Zone 100, District 6, Maynila.",
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
       },
       { property: "og:title", content: "Report a Barangay Problem — Barangay 902" },
       {
@@ -65,7 +69,11 @@ const CATEGORIES = [
   "Other",
 ];
 
+<<<<<<< HEAD
 const RoadS = ["Road 1", "Road 2", "Road 3", "Road 4", "Road 5", "Road 6"];
+=======
+const roadS = ["Road 1", "Road 2", "Road 3", "Road 4", "Road 5", "Road 6"];
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
 
 const PRIORITIES = [
   { value: "Low", hint: "Minor inconvenience, no danger to residents." },
@@ -277,7 +285,11 @@ const EMPTY = {
   priority: "Medium",
   houseNo: "",
   street: "",
+<<<<<<< HEAD
   Road: "",
+=======
+  road: "",
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
   landmark: "",
 };
 
@@ -303,7 +315,11 @@ function ReportPage() {
     () =>
       [
         [form.houseNo, form.street].filter(Boolean).join(" "),
+<<<<<<< HEAD
         form.Road,
+=======
+        form.road,
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
         "Barangay 902, Zone 100, District 6, Maynila",
         form.landmark ? `Near ${form.landmark}` : "",
       ]
@@ -351,7 +367,11 @@ function ReportPage() {
   const validateStep2 = () => {
     const next = {};
     if (!form.street.trim()) next.street = "Please enter the street or area name.";
+<<<<<<< HEAD
     if (!form.Road) next.Road = "Please select the Road.";
+=======
+    if (!form.road) next.road = "Please select the road.";
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
     if (!form.landmark.trim()) next.landmark = "Please enter the nearest landmark.";
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -600,10 +620,17 @@ function ReportPage() {
                     placeholder="e.g. Mabini Street"
                   />
                 </Field>
+<<<<<<< HEAD
                 <Field label="Road" error={errors.Road}>
                   <Select value={form.Road} onChange={set("Road")}>
                     <option value="">Select Road</option>
                     {RoadS.map((p) => (
+=======
+                <Field label="road" error={errors.road}>
+                  <Select value={form.road} onChange={set("road")}>
+                    <option value="">Select road</option>
+                    {roadS.map((p) => (
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
                       <option key={p} value={p}>
                         {p}
                       </option>
@@ -732,7 +759,11 @@ function ReportPage() {
               <div className="rounded-2xl border border-border bg-muted/20 p-4">
                 <SummaryRow label="House / Building No." value={form.houseNo} />
                 <SummaryRow label="Street / Area" value={form.street} />
+<<<<<<< HEAD
                 <SummaryRow label="Road" value={form.Road} />
+=======
+                <SummaryRow label="road" value={form.road} />
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
                 <SummaryRow label="Nearest Landmark" value={form.landmark} />
                 <SummaryRow label="Complete Location" value={fullLocation} />
                 <SummaryRow
@@ -769,7 +800,11 @@ function ReportPage() {
                 <SummaryRow label="Contact Number" value={user?.contact} />
                 <SummaryRow label="Email Address" value={user?.email} />
                 <SummaryRow label="Home Address" value={user?.address} />
+<<<<<<< HEAD
                 <SummaryRow label="Road" value={user?.Road} />
+=======
+                <SummaryRow label="road" value={user?.road} />
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
                 <SummaryRow label="Account Status" value={<StatusBadge status={user?.status} />} />
               </div>
 

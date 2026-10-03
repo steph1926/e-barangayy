@@ -18,7 +18,11 @@ export const Route = createFileRoute("/profile")({
   component: Profile,
 });
 
+<<<<<<< HEAD
 const RoadS = [
+=======
+const roadS = [
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
   "Road 1",
   "Road 2",
   "Road 3",
@@ -65,7 +69,11 @@ function Profile() {
     ["Contact Number", user.contact],
     ["Email Address", user.email],
     ["Complete Address", user.address],
+<<<<<<< HEAD
     ["Road / Sitio", user.Road || "—"],
+=======
+    ["road / Sitio", user.road || "—"],
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
     ["Valid ID", user.validId || "—"],
   ];
 
@@ -149,10 +157,17 @@ function Profile() {
               </Field>
             </div>
 
+<<<<<<< HEAD
             <Field label="Road / Sitio">
               <Select value={form.Road ?? ""} onChange={set("Road")}>
                 <option value="">Select a Road or street</option>
                 {RoadS.map((p) => (
+=======
+            <Field label="road / Sitio">
+              <Select value={form.road ?? ""} onChange={set("road")}>
+                <option value="">Select a road or street</option>
+                {roadS.map((p) => (
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
                   <option key={p} value={p}>
                     {p}
                   </option>

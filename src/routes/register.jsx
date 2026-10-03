@@ -39,7 +39,11 @@ export const Route = createFileRoute("/register")({
   component: Register,
 });
 
+<<<<<<< HEAD
 const RoadS = [
+=======
+const roadS = [
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
   "Road 1",
   "Road 2",
   "Road 3",
@@ -67,7 +71,11 @@ const EMPTY = {
   contact: "",
   email: "",
   address: "",
+<<<<<<< HEAD
   Road: "",
+=======
+  road: "",
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
   landmark: "",
   idType: "",
   idNumber: "",
@@ -158,7 +166,11 @@ function Register() {
     }
     if (target === 2) {
       if (!form.address.trim()) next.address = "Complete address is required.";
+<<<<<<< HEAD
       if (!form.Road) next.Road = "Please select your Road or sitio.";
+=======
+      if (!form.road) next.road = "Please select your road or sitio.";
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
     }
     if (target === 3) {
       if (!form.idType) next.idType = "Please select a valid ID type.";
@@ -208,7 +220,11 @@ function Register() {
       contact: form.contact.trim(),
       email: form.email.trim(),
       address: form.address.trim(),
+<<<<<<< HEAD
       Road: form.Road,
+=======
+      road: form.road,
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
       landmark: form.landmark.trim(),
       validId: `${form.idType} — ${form.idNumber.trim()}`,
       password: form.password,
@@ -350,10 +366,17 @@ function Register() {
                   </Field>
                 </div>
 
+<<<<<<< HEAD
                 <Field label="Road / Sitio" error={errors.Road}>
                   <Select value={form.Road} onChange={set("Road")}>
                     <option value="">Select a Road or street</option>
                     {RoadS.map((p) => (
+=======
+                <Field label="road / Sitio" error={errors.road}>
+                  <Select value={form.road} onChange={set("road")}>
+                    <option value="">Select a road or street</option>
+                    {roadS.map((p) => (
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
                       <option key={p} value={p}>
                         {p}
                       </option>
@@ -418,7 +441,11 @@ function Register() {
                   <SummaryRow label="Contact Number" value={form.contact} />
                   <SummaryRow label="Email Address" value={form.email} />
                   <SummaryRow label="Complete Address" value={form.address} />
+<<<<<<< HEAD
                   <SummaryRow label="Road / Sitio" value={form.Road} />
+=======
+                  <SummaryRow label="road / Sitio" value={form.road} />
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
                   <SummaryRow label="Nearest Landmark" value={form.landmark} />
                   <SummaryRow
                     label="Valid ID"

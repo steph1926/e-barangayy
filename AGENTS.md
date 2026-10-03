@@ -14,4 +14,8 @@
 - Keep admin document drafts and generated previews in React state, and use the browser print dialog for printing or saving a PDF, because official Barangay 902 formats and persistence are not yet available.
 - Keep resident verification records and approval/account-activation feedback in the shared frontend-only admin store; never store or display government ID numbers in this demo.
 - Keep authored app source in .jsx files and keep src/components/ui limited to components actually imported; build configuration may use .mjs/.ts and routeTree.gen.ts remains generated — why: the user requested a JSX-only app source and a lean codebase.
+<<<<<<< HEAD
 - Announcement bRoadcasts use a shared localStorage channel: src/lib/bRoadcasts.js owns the `eb902-announcements` key and helpers; both barangay-store (resident announcements list) and admin-store (notification bell) import it — never duplicate the key or the notification shape, and never import admin-store from barangay-store (circular).
+=======
+- Announcement broadcasts use a shared localStorage channel: src/lib/broadcasts.js owns the `eb902-announcements` key and helpers; both barangay-store (resident announcements list) and admin-store (notification bell) import it — never duplicate the key or the notification shape, and never import admin-store from barangay-store (circular).
+>>>>>>> fbb9243e947d51418373039bec07105caa84beb6
